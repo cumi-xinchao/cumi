@@ -111,7 +111,7 @@ jobs:
         id: ghpush
         run: |
           git fetch -a
-          git rebase cumi -f
+          git rebase origin/cumi -f
           git push -f
 
       #Deploy storybook
