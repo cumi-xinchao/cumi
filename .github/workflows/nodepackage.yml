@@ -1,9 +1,9 @@
 
 # Workflow name
-name: 'Update npm version'
+name: Update npm version
 
 # Event for the workflow
-on:
+'on':
   push:
     branches:
       - cumi
@@ -24,8 +24,8 @@ jobs:
 
       - name: Update npm package version
         run: |
-          git config --global user.name "${{ env.secrets.USERNAME }}"
-          git config --global user.email "${{ env.secrets.USER_EMAIL }}"
+          git config --global user.name "${{ secrets.USER_NAME }}"
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
           npm version minor
 
       - name: Publish npm package version
