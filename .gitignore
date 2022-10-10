@@ -2,7 +2,7 @@
 node_modules
 /dist
 /.github
-
+CHANGELOG.md
 
 # local env files
 .env.local
