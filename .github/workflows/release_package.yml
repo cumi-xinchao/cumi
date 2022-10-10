@@ -116,8 +116,8 @@ jobs:
 
       #Deploy storybook
       - name: Deploy storybook
-          uses: JamesIves/github-pages-deploy-action@3.6.2
-          if: steps.installdependencies.outcome == 'success' && steps.ghpush.outcome == 'success'
-          with:
-            branch: gh-pages
-            folder: storybook-static
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        if: steps.installdependencies.outcome == 'success' && steps.ghpush.outcome == 'success'
+        with:
+          branch: gh-pages
+          folder: storybook-static
