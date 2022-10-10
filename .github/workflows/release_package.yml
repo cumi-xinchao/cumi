@@ -11,7 +11,7 @@ jobs:
     steps:
       # Checkout project repository
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       # Setup Node.js environment
       - name: Setup Node.js
@@ -21,6 +21,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
+        id: installdependencies
         run: |
           npm ci
           npm run build-storybook
@@ -98,3 +99,25 @@ jobs:
           prerelease: ${{ startsWith(github.event.inputs.release-type, 'pre') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Checkout gh-pages branch
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      # Rebase onto cumi branch and force push
+      - name: gh-pages rebasing and pushing
+        id: ghpush
+        run: |
+          git fetch -a
+          git rebase cumi -f
+          git push -f
+
+      #Deploy storybook
+      - name: Deploy storybook
+          uses: JamesIves/github-pages-deploy-action@3.6.2
+          if: steps.installdependencies.outcome == 'success' && steps.ghpush.outcome == 'success'
+          with:
+            branch: gh-pages
+            folder: storybook-static
