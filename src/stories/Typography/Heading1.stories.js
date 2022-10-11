@@ -30,3 +30,9 @@ Heading_1_Bold.args = {
     variant: 'base-h1-bold',
     text: 'fontSize: 72px - fontWeight: 700',
 };
+
+export const Heading_1_ExtraBold = Template.bind({});
+Heading_1_ExtraBold.args = {
+    variant: 'base-h1-extrabold',
+    text: 'fontSize: 72px - fontWeight: 800',
+};
