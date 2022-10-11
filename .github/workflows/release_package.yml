@@ -115,8 +115,6 @@ jobs:
           git rebase origin/cumi -f
           npm i
           npm run build-storybook
-          git add .
-          git commit -m "Update gh-pages"
           git push -f
 
       #Deploy storybook
