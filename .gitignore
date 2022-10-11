@@ -3,6 +3,7 @@ node_modules
 /dist
 /.github
 CHANGELOG.md
+package-lock.json
 
 # local env files
 .env.local
