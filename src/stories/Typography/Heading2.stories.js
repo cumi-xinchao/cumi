@@ -30,3 +30,9 @@ Heading_2_Bold.args = {
     variant: 'base-h2-bold',
     text: 'Heading 2',
 };
+
+export const Heading_2_ExtraBold = Template.bind({});
+Heading_2_ExtraBold.args = {
+    variant: 'base-h2-extrabold',
+    text: 'Heading 2',
+};
